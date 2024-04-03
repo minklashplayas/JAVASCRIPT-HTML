@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gaming ZoneG</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1 class="titulo">JavaScript con Termux</h1>
+    <section class="parte1">
+      <h1 class="Bienvenida">Bienvenido a ZonaG</h1>
+      <p class="parrafo">Aqui podremos hacer uso de <span style="color: yellow;">JavaScript</span> Para aprender a usar sus funcionalidades basicas</p>
+      <a href="file.pdf" class="but">Descargar</a>      
+    </section>
+    <h1 class="titulo">Animacion Tactil</h1>
+    <section class="parte1">
+       <p id="miParrafo">Toque este párrafo para animarlo.</p>
+
+<script>
+    var parrafo = document.getElementById("miParrafo");
+
+    parrafo.addEventListener("touchstart", function(event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del evento táctil
+        this.style.fontSize = "24px";
+        this.style.color = "red";
+        this.style.transition = "font-size 0.5s, color 0.5s";
+    });
+
+    parrafo.addEventListener("touchend", function(event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del evento táctil
+        this.style.fontSize = "16px";
+        this.style.color = "black";
+    });
+</script>
+
+    </section>
+    <h1 class="titulo">Menu Desplegable</h1>
+
+    <section class="parte1">
+      <button onclick="toggleMenu()" class="but">Menú</button>
+<ul id="menu" style="display: none;">
+  <li><a href="#">Inicio</a></li>
+  <li><a href="#">Productos</a></li>
+  <li><a href="#">Contacto</a></li>
+</ul>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById("menu");
+    if (menu.style.display === "none") {
+      menu.style.display = "block";
+    } else {
+      menu.style.display = "none";
+    }
+  }
+</script>
+    </section>
+    <h1 class="titulo">Mostrar Hora</h1>
+    <section class="parte1">
+      <p id="hora"></p>
+
+<script>
+  function mostrarHora() {
+    var fecha = new Date();
+    var hora = fecha.getHours();
+    var minutos = fecha.getMinutes();
+    var segundos = fecha.getSeconds();
+    var formatoHora = (hora < 10 ? "0" + hora : hora) + ":" + (minutos < 10 ? "0" + minutos : minutos) + ":" + (segundos < 10 ? "0" + segundos : segundos);
+    document.getElementById("hora").innerText = formatoHora;
+  }
+
+  setInterval(mostrarHora, 1000); // Actualizar la hora cada segundo
+</script>
+      
+    </section>
+    <h1 class="titulo">Audios</h1>
+    <section class="parte1">
+      <audio id="miAudio" src="miarchivo.mp3"></audio>
+<button onclick="reproducirAudio()">Reproducir Audio</button>
+
+<script>
+  function reproducirAudio() {
+    var audio = document.getElementById("miAudio");
+    audio.play();
+  }
+</script>
+    </section>
+    <section class="parte1">
+      <div id="audioContainer">
+  <audio id="miAudio" src="miarchivo.mp3"></audio>
+  <button onclick="reproducirAudio()">Play</button>
+  <button onclick="detenerAudio()">Stop</button>
+  <p id="tiempo">Tiempo: 0s</p>
+</div>
+
+<script>
+  var audio = document.getElementById("miAudio");
+  var tiempoTexto = document.getElementById("tiempo");
+
+  function reproducirAudio() {
+    audio.play();
+    actualizarTiempo();
+  }
+
+  function detenerAudio() {
+    audio.pause();
+  }
+
+  function actualizarTiempo() {
+    setInterval(function() {
+      var segundos = Math.round(audio.currentTime);
+      tiempoTexto.innerText = "Tiempo: " + segundos + "s";
+    }, 1000); // Actualizar cada segundo
+  }
+</script>
+    </section>
+    <h1 class="titulo">Redirigir</h1>
+    <section class="parte1">
+      <a class="sup" href="#seccion2" onclick="scrollToSection('seccion2')">Ir a Sección 2</a>
+<a href="#seccion3" onclick="scrollToSection('seccion3')">Ir a Sección 3</a>
+
+<div id="seccion1">Sección 1</div>
+<div id="seccion2">Sección 2</div>
+<div id="seccion3">Sección 3</div>
+
+<script>
+  function scrollToSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+    </section>
+    <h1 class="titulo">JSON FILES</h1>
+    <section class="parte1">
+      <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de JSON</title>
+</head>
+<body>
+
+<h2>Datos de la persona:</h2>
+<p id="datosPersona"></p>
+
+<script>
+  // Leer el archivo JSON
+  fetch('datos.json')
+    .then(response => response.json())
+    .then(data => {
+      // Mostrar los datos en la página
+      var datosPersona = document.getElementById('datosPersona');
+      datosPersona.innerHTML = 'Nombre: ' + data.nombre + '<br>' +
+                                'Edad: ' + data.edad + '<br>' +
+                                'Ciudad: ' + data.ciudad;
+    })
+    .catch(error => console.error('Error al leer el archivo JSON:', error));
+</script>
+    </section>
+    <section class="parte1">
+      <div id="listaProductos" class="container"></div>
+
+<script>
+  // Leer el archivo JSON de productos
+  fetch('productos.json')
+    .then(response => response.json())
+    .then(data => {
+      // Mostrar los productos en la página
+      var listaProductos = document.getElementById('listaProductos');
+      data.forEach(producto => {
+        listaProductos.innerHTML += `
+          <div class="producto">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h2>${producto.nombre}</h2>
+            <p>Precio: $${producto.precio}</p>
+          </div>
+        `;
+      });
+    })
+    .catch(error => console.error('Error al leer el archivo JSON:', error));
+</script>
+      
+    </section>
+    <h1 class="titulo">FAQ's Json</h1>
+    <section class="parte1">
+      <div id="faqContainer"></div>
+
+<script src="script.js"></script>
+      
+    </section>
+  </body>
+</html>

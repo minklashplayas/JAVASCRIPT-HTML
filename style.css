@@ -1,0 +1,317 @@
+body {
+  background-color: #793200;
+
+}
+.titulo {
+    text-align: center;
+    font-size: 24px; /* Tamaño de la fuente */
+    font-weight: bold; /* Peso de la fuente */
+    color: #0099ff; /* Color del texto */
+    animation: agua 2s infinite linear alternate; /* Animación */
+}
+
+@keyframes agua {
+    0% {
+        transform: translateY(0px); /* Sin movimiento */
+    }
+    50% {
+        transform: translateY(-5px); /* Movimiento hacia arriba */
+    }
+    100% {
+        transform: translateY(0px); /* Regreso a la posición inicial */
+    }
+}
+
+.parte1 {
+  background-color: #bb3200;
+  margin: 20px;
+  padding: 30px;
+  border: 1px solid #ffa900;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.bienvenida {
+    background-color: #ffcc00; /* Color de fondo vibrante */
+    color: #ffffff; /* Color de texto blanco */
+    font-family: "Arial", sans-serif; /* Fuente legible */
+    padding: 50px; /* Espaciado interno generoso */
+    text-align: center; /* Alineación central */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative; /* Posición relativa para animación */
+    overflow: hidden; /* Ocultar desbordamiento */
+}
+
+
+
+.Bienvenida {
+    font-size: 18px; /* Tamaño del texto */
+    line-height: 1.5; /* Altura de línea generosa */
+}
+
+.Bienvenida .Bienvenida {
+    position: absolute; /* Posición absoluta para superponer */
+    top: 50%; /* Colocar en el centro vertical */
+    left: 50%; /* Colocar en el centro horizontal */
+    transform: translate(-50%, -50%); /* Centrar completamente */
+    animation: giro 5s infinite linear; /* Animación giratoria */
+}
+
+@keyframes giro {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg); /* Rotación inicial */
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg); /* Rotación completa */
+    }
+}
+.but {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5e0000; /* Color verde claro */
+    color: yellow; /* Color de texto blanco */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative; /* Posición relativa para el efecto de movimiento */
+    overflow: hidden; /* Ocultar el desbordamiento */
+}
+
+.but::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Empieza fuera del botón */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Color de la luz que pasa */
+    transition: left 0.5s ease-in-out; /* Transición suave */
+}
+
+.but:hover::before {
+    left: 100%; /* Termina fuera del botón */
+}
+
+.parrafo {
+    font-family: "Arial", sans-serif; /* Fuente legible */
+    font-size: 18px; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea */
+    color: #4f6894; /* Color de texto oscuro */
+    background-color: #5e0000; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.parrafo::first-letter {
+    font-size: 24px; /* Tamaño de la primera letra */
+    color: #ff6600; /* Color de la primera letra */
+    float: left; /* Alineación de la primera letra */
+    margin-right: 5px; /* Espaciado entre la primera letra y el texto */
+}
+
+.parrafo strong {
+    color: #0099ff; /* Color del texto en negrita */
+}
+
+.parrafo em {
+    font-style: italic; /* Texto en cursiva */
+}
+
+.parrafo:hover {
+    transform: translateY(-3px); /* Efecto de levantamiento suave al pasar el ratón */
+    transition: transform 0.2s ease-in-out; /* Transición suave */
+}
+
+#menu {
+  list-style-type: none; /* Quita los puntos de lista */
+  padding: 0; /* Elimina el espacio de relleno predeterminado */
+}
+
+#menu li {
+  margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+}
+
+#menu li a {
+  display: block; /* Hace que los enlaces ocupen todo el ancho de la lista */
+  padding: 10px; /* Espaciado interno */
+  text-decoration: none; /* Quita el subrayado predeterminado */
+  color: #333; /* Color del texto */
+  background-color: #f7f7f7; /* Color de fondo */
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+#menu li a:hover {
+  background-color: #ddd; /* Cambia el color de fondo al pasar el ratón */
+}
+
+
+#hora {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #ff5; /* Color naranja */
+}
+
+#mensaje {
+  font-size: 18px;
+  color: #00bcd4; /* Color azul claro */
+}
+
+
+#miAudio {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #5e0000; /* Verde de Spotify */
+  color: yellow;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5e0000; /* Verde oscuro de Spotify */
+}
+
+/*Segundi audio*/
+
+#audioContainer {
+  width: 200px;
+  margin: 0 auto;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#audioControls button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#audioControls button:hover {
+  background-color: #f0f0f0;
+}
+
+#audioTime {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.sup {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    color: yellow;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  a:hover {
+    background-color: #333;
+  }
+
+  /* Estilos para las secciones */
+  div[id^="seccion"] {
+    height: 500px;
+    padding: 20px;
+    color: #yellow;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 24px;
+  }
+
+  #seccion1 {
+    background-color: #8b0000; /* Rojo oscuro */
+  }
+
+  #seccion2 {
+    background-color: #002470; /* Amarillo */
+  }
+
+  #seccion3 {
+    background-color: #4169e1; /* Azul */
+  }
+
+
+/*JSON*/
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.producto {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.producto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.producto h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.producto p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/*FAQSS*/
+
+#faqContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.faq h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.faq p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
